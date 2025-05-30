@@ -9,8 +9,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [emailId, setEmail] = useState("rahul@gmail.com");
-  const [password, setPassword] = useState("Rahul123@");
+  const [emailId, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
@@ -42,7 +42,7 @@ const Login = () => {
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Email</legend>
               <input
-                type="text"
+                type="email"
                 value={emailId}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -54,7 +54,7 @@ const Login = () => {
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Password</legend>
               <input
-                type="text"
+                type="password"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -70,6 +70,14 @@ const Login = () => {
               Login
             </button>
           </div>
+          <p
+            className="text-center my-2 cursor-pointer"
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
+            New User? SignUp
+          </p>
         </div>
       </div>
     </div>

@@ -28,6 +28,12 @@ const Feed = () => {
     getFeed();
   }, []);
 
+  if (!feed || feed.length === 0) {
+    return (
+      <div className="text-2xl font-black text-center m-4">No New User</div>
+    );
+  }
+
   return (
     feed && (
       <div className="flex justify-center my-10 mb-30">

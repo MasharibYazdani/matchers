@@ -29,8 +29,8 @@ function Navbar() {
   return (
     <div className="navbar bg-red-900 shadow-sm">
       <div className="flex-1">
-        <Link to={"/"} className="btn btn-ghost text-xl ">
-          Matchers
+        <Link to={user ? "/" : "/login"} className="btn btn-ghost text-xl ">
+          matchers
         </Link>
       </div>
       {user && (
@@ -59,7 +59,6 @@ function Navbar() {
               <li>
                 <Link to={"/requests"} className="justify-between">
                   Requests
-                  <span className="badge">New</span>
                 </Link>
               </li>
               <li>
