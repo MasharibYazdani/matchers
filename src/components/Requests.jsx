@@ -10,7 +10,7 @@ const Connections = () => {
 
   const getRequests = async () => {
     try {
-      const res = await axios.get(BASE_URL + "user/requests", {
+      const res = await axios.get(BASE_URL + "/user/requests", {
         withCredentials: true,
       });
       dispatch(addRequests(res?.data?.data));
@@ -26,7 +26,7 @@ const Connections = () => {
   const reviewRequest = async (status, _id) => {
     try {
       await axios.post(
-        BASE_URL + "request/review/" + status + "/" + _id,
+        BASE_URL + "/request/review/" + status + "/" + _id,
         {},
         { withCredentials: true }
       );
@@ -36,7 +36,9 @@ const Connections = () => {
     }
   };
 
-  if (!requestsList || requestsList.length === 0) {
+  if (!requestsList) return;
+
+  if (requestsList.length === 0) {
     return (
       <div className="text-2xl font-black text-center m-4">
         No Requests Found

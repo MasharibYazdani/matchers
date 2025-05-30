@@ -14,7 +14,7 @@ const Feed = () => {
     if (feed) return;
 
     try {
-      const res = await axios.get(BASE_URL + "user/feed", {
+      const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
       });
 
@@ -28,7 +28,9 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  if (!feed || feed.length === 0) {
+  if (!feed) return;
+
+  if (feed.length === 0) {
     return (
       <div className="text-2xl font-black text-center m-4">No New User</div>
     );

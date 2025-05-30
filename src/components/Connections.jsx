@@ -10,7 +10,7 @@ const Connections = () => {
 
   const getConnections = async () => {
     try {
-      const res = await axios.get(BASE_URL + "user/connections", {
+      const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
       dispatch(addConnections(res?.data?.data));
@@ -23,7 +23,9 @@ const Connections = () => {
     getConnections();
   }, []);
 
-  if (!connectionsList || connectionsList.length === 0) {
+  if (!connectionsList) return;
+
+  if (connectionsList.length === 0) {
     return (
       <div className="text-2xl font-black text-center m-4">
         No Connections Found

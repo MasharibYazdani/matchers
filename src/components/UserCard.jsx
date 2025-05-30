@@ -12,7 +12,7 @@ const UserCard = ({ user }) => {
 
   const handleRequest = async (status, id) => {
     await axios.post(
-      BASE_URL + "request/send/" + status + "/" + id,
+      BASE_URL + "/request/send/" + status + "/" + id,
       {},
       { withCredentials: true }
     );
